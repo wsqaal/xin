@@ -65,17 +65,22 @@ body{
     <br />
     
 	<center>
-    <form action="admin_check.php" mothod="post" name="form1">
-  	  用户名：<input type="text" name="admin_name"><br />
+    <form action ="php_login.php" method ="post">
+  	  用户名：<input type="text" name="user_name"><br />
       <br />
       <br />
-	  &nbsp;密码： <input type="password" name="admin_password"><br/>
+	  &nbsp;密码： <input type="password" name="user_password"><br/>
+       <br />
+    <br />
+    <center><input type="submit" id="common"  style="color:#FFF" value="登&nbsp;录"/></center>
+    <br />
+    <br />
   	</form>
     </center>
-    <br />
+	<br />
     <br />
     
-	<center><div id="common" onclick="location.href='register.html'"><font color="#FFFFFF">登&nbsp;录</font></div>
+	<center><input type="hidden" id="common" value="注&nbsp;册">
 </div></center>
 <div id="fonter">
 </div>

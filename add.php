@@ -76,7 +76,7 @@ body{
 <a href="choose.html" class="header1">返回选项卡</a>
 </div>
 <div class="float_div2">
-<font style="text-align:right; color:#FFF; width:25%">当前用户:XXX</font>&nbsp;
+<font style="text-align:right; color:#FFF; width:25%">当前用户:<?php session_start(); echo $_SESSION["name"]; ?></font>&nbsp;
 </div>
 <div class="float_div3">
 <a href="index.html" class="link" >注销登录</a>
@@ -87,7 +87,7 @@ body{
     <br />
 	<center>
     
-    <form action="admin_check.php" mothod="post" name="form1">
+    <form action ="php_add.php" method ="post">
     <table >
     <tr>
     <center>

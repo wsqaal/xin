@@ -1,0 +1,25 @@
+
+
+<?php
+ session_start();
+ require_once("connect.php");
+ 
+ $pwd = get_value('pwd','post');
+ $pwd2 = get_value('pwd2','post');
+ $pwd3 = get_value('pwd3','post');
+ $sql = "select * from gx_member  where m_pwd='".md5($pwd)."' and m_name='".$_SESSION['uid']."'";
+ 
+  if( $pwd2!=$pwd3 || strlen( $pwd2)<6 || strlen( $pwd2)>12 ){
+   alert('两次输入的新密码不正确,请重新输入!','');
+  }else{   
+   if(mysql_num_rows( mysql_query($sql) ) ){
+    $sql="Update gx_member set m_pwd='".md5($pwd2)."' where m_name='".$_SESSION['uid']."'";
+    mysql_query($sql) or die(mysql_error());
+    alert('密码修改成功!','');
+   }else{
+    alert('旧密码不正确,请重新输入!','');
+   }
+  }
+ 
+ 
+?>

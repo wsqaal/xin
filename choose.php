@@ -58,21 +58,21 @@ body{
 }
 </style>
 <body>
-<div id="header"><font color="#FFFFFF" >当前用户:XXX</font>&nbsp;
+<div id="header"><font color="#FFFFFF" >当前用户:<?php session_start(); echo $_SESSION["name"]; ?></font>&nbsp;
 <a href="index.html" class="link" >注销登录</a>
 </div>
 <div id="center">
 	<br />
     <br />
-	<center><div id="common" ><a href="login.html" style="text-decoration:none; color:#FFF" >
+	<center><div id="common" ><a href="add.php" style="text-decoration:none; color:#FFF" >
     添加会议记录</a></div></center>
     <br />
     <br />
-	<center><div id="common" ><a href="register.html" style="text-decoration:none; color:#FFF">
+	<center><div id="common" ><a href="chakan.php" style="text-decoration:none; color:#FFF">
     查看会议记录</a></div></center>
     <br />
     <br />
-	<center><div id="common" ><a href="register.html" style="text-decoration:none; color:#FFF">
+	<center><div id="common" ><a href="changepassword.php" style="text-decoration:none; color:#FFF">
     修改密码</a></div></center>
 </div>
 <div id="fonter">

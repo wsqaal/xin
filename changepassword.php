@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>选项</title>
+<title>修改密码</title>
 </head>
 <style type="text/css">
 #header{
@@ -58,7 +58,7 @@ body{
 }
 </style>
 <body>
-<div id="header"><font color="#FFFFFF" >当前用户:XXX</font>&nbsp;
+<div id="header"><font color="#FFFFFF" >当前用户:<?php session_start(); echo $_SESSION["name"]; ?></font>&nbsp;
 <a href="index.html" class="link" >注销登录</a>
 </div>
 <div id="center">
@@ -66,19 +66,18 @@ body{
     <br />
 	<center>
     
-    <form action="admin_check.php" mothod="post" name="form1">
-  	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原密码：<input type="text" name="admin_name"><br />
+    <form action ="change_pwd2.php" method ="post">
+  	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;原密码：<input type="password" name="pwd"><br />
       <br />
       <br />
-	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新密码：<input type="password" name="admin_password"><br/>
+	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新密码：<input type="password" name="pwd2"><br/>
       <br />
       <br />
- 再次输入密码：<input type="password" name="admin_password"><br/>
+ 再次输入密码：<input type="password" name="pwd3"><br/>
 
     <br />
     <br />
-	<center><div id="common" ><a href="register.html" style="text-decoration:none; color:#FFF">
-    确认</a></div></center>
+	<center><input type="submit" id="common"  style="color:#FFF" value="修&nbsp;改"/></center>
     </form>
     </center>
 </div>

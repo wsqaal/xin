@@ -66,17 +66,24 @@ body{
     <br />
     
 	<center>
-    <form action="register.php" mothod="post" name="form1">
+    <form action ="php_register.php" method ="post">
   	  用户名：<input type="text" name="user_name"><br />
       <br />
       <br />
 	  &nbsp;密码： <input type="password" name="user_password"><br/>
+      
+    <br />
+    <br />
+      <center><input type="submit" id="common" value="注&nbsp;册"  />	</center>
+      
+    <br />
+    <br />
   	</form>
     </center>
     <br />
     <br />
     
-	<center><input type="submit"  id="common" value="注&nbsp;册" onclick="location.href='register.php'">
+	<center><input type="hidden" id="common" value="注&nbsp;册" onclick="location.href='register.php'">
 </div></center>
 <div id="fonter">
 </div>
