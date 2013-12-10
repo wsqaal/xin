@@ -56,7 +56,7 @@ body{
 #common{
 	background-position:center;
 	background-color:#03F;
-	width:520px;
+	width:100px;
 	height:35px;
 	text-align:center;
 	font-size:24px;
@@ -110,10 +110,10 @@ body{
 <body>
 <div id="header">
 <div class="float_div1">
-<a href="choose.html" class="header1">返回选项卡</a>
+<a href="choose.php" class="header1">返回选项卡</a>
 </div>
 <div class="float_div2">
-<font style="text-align:right; color:#FFF; width:25%">当前用户:XXX</font>&nbsp;
+<font style="text-align:right; color:#FFF; width:25%">当前用户:<?php session_start(); echo $_SESSION["name"]; ?></font>&nbsp;
 </div>
 <div class="float_div3">
 <a href="index.html" class="link" >注销登录</a>
@@ -124,21 +124,21 @@ body{
     <br />
 	<center>
     
-    <form action="admin_check.php" mothod="post" name="form1">
+    <form action ="add3.php" method ="post">
     <table>
     <tr>
     	<td><div id="common_td">姓名:</div></td>
-        <td><div id="common2">xxx</div></td>
-        <td><div id="submit"><font color="#FFFFFF">提交</font></div></td>
+        <td><input id="common2" type="text"  name="uname" value="<?php session_start(); echo $_SESSION["name"];?>"/></td>
+        <td><input type="submit" id="common"  style="color:#FFF" value="提&nbsp;交"/></td>
     </tr>
     <br />
     <tr >
     	<td><div id="common_td">起始日期:</div></td>
         <td>
         <div id="common22">
-        <div id="common3">x-x-x</div>
-        <div id="common4">x-x-x</div></div></td>
-        <td>&nbsp;<div id="submit"><font color="#FFFFFF">提交</font></div></td>
+        <input id="common3" type="time" value=" " />
+		<input id="common4" type="time" value="<?php echo date("Y-m-d");?>" /></div></td>	
+        <td><input type="submit" id="common" style="color:#FFF" value="提&nbsp;交"/></td>
     </tr>
 	</table>
     </form>

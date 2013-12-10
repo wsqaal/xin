@@ -123,10 +123,10 @@ body{
 <body>
 <div id="header">
 <div class="float_div1">
-<a href="choose.html" class="header1">返回选项卡</a>
+<a href="choose.php" class="header1">返回选项卡</a>
 </div>
 <div class="float_div2">
-<font style="text-align:right; color:#FFF; width:25%">当前用户:XXX</font>&nbsp;
+<font style="text-align:right; color:#FFF; width:25%">当前用户:<?php session_start(); echo $_SESSION["name"]; ?></font>&nbsp;
 </div>
 <div class="float_div3">
 <a href="index.html" class="link" >注销登录</a>
@@ -137,7 +137,6 @@ body{
     <br />
 	<center>
     
-    <form action="admin_check.php" mothod="post" name="form1">
     <table border="1" cellpadding="1" cellspacing="1">
     <tr style=" background-color:#666">
     	<td><div id="huiyi">会议ID</div></td>
@@ -150,12 +149,58 @@ body{
         <td><center>陈舜斌</center></td>
         <td><center>第22周技术部</center></td>
         <td><center>2013-12-13 23:23:23</center></td>
-    	
     </tr>
-	</table>
-    <div id="fonter2"><font color="#FFFFFF">上一页</font></div>
-    <div id="fonter3"><font color="#FFFFFF">下一页</font></div>
-    </form>
+<?php 
+  $conn=mysql_connect("localhost","root","wsq012823");     // 打开MySql服务器连接
+  mysql_select_db("php_test");                        //链接数据库
+  mysql_query("set names 'utf-8'");                      //解决中文乱码问题
+
+  $pageSize=6;
+  $pageNumber= $_GET["pageNumber"];						//传递页数
+  if( $pageNumber==null) $pageNumber=1;					//若页数为空 ，设为1
+  $rs = mysql_fetch_row(mysql_query("select count(*) from test_message"));   //取得记录数
+  $totalCount = $rs[0];														//取得记录数
+  $exec="select * from test_message limit ".(($pageNumber-1)*$pageSize)." ,6";   //sql语句
+  $result = mysql_query($exec) ;                                             //执行语句，返回结果
+  while($rs=mysql_fetch_object($result))
+  {
+    echo "<tr><td><center>".$rs->mid."</center></td>";					   //显示编号
+    echo "<td><center>".$rs->uid."</center></td>";                        //显示记录人
+	echo "<td><center>".$rs->subject."</center></td>";                    //显示标题
+    echo "<td><center>".$rs->time."</center></td></tr>";				  //显示时间
+  }
+	echo "</table>";      
+?>
+
+<?php
+
+  echo "<br />";
+  echo "<br />";
+  echo "<br />";
+  echo "<br />";
+  if($pageNumber > 1)                                                           //判断页数
+  {
+    echo "<a href=record.php?pageNumber=".($pageNumber-1)." >上一页&nbsp&nbsp</a>";
+  }
+  else
+  {
+    echo "上一页&nbsp&nbsp";
+  }
+
+  if($pageNumber < $totalCount/$pageSize)                                         //判断页数
+  {
+    echo "<a href=record.php?pageNumber=".($pageNumber+1).">下一页&nbsp&nbsp</a>"; 
+  }
+  else
+  {
+    echo "下一页";
+  }
+
+  mysql_close();
+?>
+        
+    <div id="fonter2" hidden="true"><font color="#FFFFFF">上一页</font></div>
+    <div id="fonter3" hidden="true"><font color="#FFFFFF">下一页</font></div>
 
     </center>
 </div>

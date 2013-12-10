@@ -68,7 +68,7 @@ body{
     添加会议记录</a></div></center>
     <br />
     <br />
-	<center><div id="common" ><a href="chakan.php" style="text-decoration:none; color:#FFF">
+	<center><div id="common" ><a href="record.php" style="text-decoration:none; color:#FFF">
     查看会议记录</a></div></center>
     <br />
     <br />

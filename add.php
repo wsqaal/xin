@@ -73,7 +73,7 @@ body{
 <body>
 <div id="header">
 <div class="float_div1">
-<a href="choose.html" class="header1">返回选项卡</a>
+<a href="choose.php" class="header1">返回选项卡</a>
 </div>
 <div class="float_div2">
 <font style="text-align:right; color:#FFF; width:25%">当前用户:<?php session_start(); echo $_SESSION["name"]; ?></font>&nbsp;
@@ -87,7 +87,7 @@ body{
     <br />
 	<center>
     
-    <form action ="php_add.php" method ="post">
+    <form action ="add3.php" method ="post">
     <table >
     <tr>
     <center>
@@ -95,7 +95,7 @@ body{
     	<td> 
                 	<div style="color:#666">
         <font style="font-size:24px; text-align:left; width:auto">标题:</font>
-            <input type="text"  name=""  style="width:440px; color:#666"/>
+            <input type="text"  name="subject"  style="width:440px; color:#666"/>
         	</div>
         </td>
     </center>
@@ -103,15 +103,14 @@ body{
     <tr>
     <td>
     <div style="color:#666">
-    <center><textarea color:#666 name="post_contents" rows="10" cols="60"></textarea></center>
+    <center><textarea color:#666 name="message" rows="10" cols="60"></textarea></center>
     </div>
     </td>
     </tr>
     </table>
     <br />
-  	  
-	<center><div id="common" ><a href="register.html" style="text-decoration:none; color:#FFF">
-    提交</a></div></center>
+  	<center><input type="submit" id="common"  style="color:#FFF" value="提&nbsp;交"  onclick="javascript:window.open('add2.php')" /></center>
+
     </form>
     </center>
 </div>
