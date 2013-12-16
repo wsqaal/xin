@@ -1,12 +1,12 @@
 <?php
+	session_start();									//启用session变量
 	echo $_POST["user_name"];
 	$username = $_POST["user_name"];					//取得用户名
 	$password_min = $_POST["user_password"];			//取得密码
 	$password = md5($password_min);						//md5加密	
 	
-	$conn=mysql_connect("localhost","root","wsq012823")or die("error!"); //连接mysql              
- 	mysql_select_db("php_test",$conn); 					//选择mysql数据库
- 	mysql_query("set names 'utf8'");					//mysql编码
+	require_once('conn.php');		//引入conn.php文件
+	
 	$exec="insert into test_user (name , password) 
 	values('$username','$password')";
 	

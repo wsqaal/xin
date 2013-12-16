@@ -3,73 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>选项</title>
+<link rel="stylesheet" type="text/css" href="css/add.css" />
 </head>
-<style type="text/css">
-#header{
-	background-color:#000;
-	height:40px;
-    position:relative;
-    bottom:0;
-	margin-top:0px;
-	margin-left:0px;
-	font-size:36px;
-    left:0;
-    width:100%;
-	}
-.header1{
-	text-decoration:none; 
-	color:#FFF; 
-	text-align:left; 
-}	
-
-.float_div1{ 
-	float:left;
-	width:70%;}
-.float_div2{ 
-	float:left;
-	width:18%;}
-.float_div3{ 
-	float:right;
-	width:12%;}	
-.link{
-	color:#F00;
-	text-decoration:none; 
-	}
-body{
-	background-color:#666;
-/*	text-align:center;*/
-/*	position:relative;*/
-}
-
-#center
-{
-	background-color:#FFF;
-	position:absolute;
-	width:600px;
-	height:400px;
-	left:50%;
-	top:50%;
-	margin-left:-250px;
-	margin-top:-150px;
-}
-#common{
-	background-position:center;
-	background-color:#03F;
-	width:520px;
-	height:35px;
-	text-align:center;
-	font-size:24px;
-}
-
-#fonter{
-	background-color:#000;
-	height: 40px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-</style>
 <body>
 <div id="header">
 <div class="float_div1">
@@ -87,7 +22,7 @@ body{
     <br />
 	<center>
     
-    <form action ="add3.php" method ="post">
+    <form action ="add2.php?" method ="post">
     <table >
     <tr>
     <center>
@@ -109,7 +44,7 @@ body{
     </tr>
     </table>
     <br />
-  	<center><input type="submit" id="common"  style="color:#FFF" value="提&nbsp;交"  onclick="javascript:window.open('add2.php')" /></center>
+  	<center><input type="submit" id="common"  style="color:#FFF" value="提&nbsp;交"   /></center>
 
     </form>
     </center>

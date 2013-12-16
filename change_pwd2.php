@@ -1,15 +1,10 @@
 <?php
 	session_start();
-//	require_once("connect.php");
+	require_once('conn.php');		//引入conn.php文件
 
 	$pwd = $_POST["pwd"];
 	$pwd2 = $_POST["pwd2"];
 	$pwd3 = $_POST["pwd3"];
-	
-	$conn=mysql_connect("localhost","root","wsq012823")or die("error!"); //连接mysql              
- 	mysql_select_db("php_test",$conn); 					//选择mysql数据库
- 	mysql_query("set names 'utf8'");					//mysql编码
-	
 	
 	$sql = "select * from test_user  where password='".md5($pwd)."' and name='".$_SESSION["name"]."'";
 	 

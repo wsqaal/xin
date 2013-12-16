@@ -3,123 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>选项</title>
+<link rel="stylesheet" type="text/css" href="css/record.css" />
 </head>
-<style type="text/css">
-#header{
-	background-color:#000;
-	height:40px;
-    position:relative;
-    bottom:0;
-	margin-top:0px;
-	margin-left:0px;
-	font-size:36px;
-    left:0;
-    width:100%;
-	}
-.header1{
-	text-decoration:none; 
-	color:#FFF; 
-	text-align:left; 
-}	
-
-.float_div1{ 
-	float:left;
-	width:70%;}
-.float_div2{ 
-	float:left;
-	width:18%;}
-.float_div3{ 
-	float:right;
-	width:12%;}	
-.link{
-	color:#F00;
-	text-decoration:none; 
-	}
-body{
-	font-size:16px;
-	background-color:#666;
-/*	text-align:center;*/
-/*	position:relative;*/
-}
-
-#center
-{
-	background-color:#FFF;
-	position:absolute;
-	width:600px;
-	height:400px;
-	left:50%;
-	top:50%;
-	margin-left:-250px;
-	margin-top:-150px;
-}
-#common{
-	background-position:center;
-	background-color:#03F;
-	width:520px;
-	height:35px;
-	text-align:center;
-	font-size:24px;
-}
-
-#fonter{
-	background-color:#000;
-	height: 40px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-#huiyi{
-	font-size:24px;
-	text-align:center;
-	width:80px;
-	float:left;
-}
-#jiluren{
-	font-size:24px;
-	text-align:center;
-	width:80px;
-	float:left;
-}
-
-#biaoti{
-	font-size:24px;
-	width:240px;
-	text-align:center;
-	float:right;
-}
-#shijian{
-	text-align:center;
-	font-size:24px;
-	float:right;
-	width:100px;
-}
-#fonter2{
-	position:absolute;
-	background-color:#00F;
-	text-align:center;
-	font-size:24px;
-	float:left;
-	left:50%;
-	top:95%;
-	margin-left:-280px;
-	margin-top:-50px;
-}
-
-#fonter3{
-	position:absolute;
-	background-color:#00F;
-	text-align:center;
-	font-size:24px;
-	float:right;
-	left:50%;
-	top:95%;
-	margin-left:180px;
-	margin-top:-50px;
-}
-</style>
 <body>
 <div id="header">
 <div class="float_div1">
@@ -154,18 +39,19 @@ body{
   require_once('conn.php');		//引入conn.php文件
 
   $pageSize=6;
+  $uid=@$_GET["uid"];
   $pageNumber= @$_GET["pageNumber"];						//传递页数
   if( $pageNumber==null) $pageNumber=1;					//若页数为空 ，设为1
-  $rs = mysql_fetch_row(mysql_query("select count(*) from test_message "));   //取得记录数
-  $totalCount = $rs[0];														//取得记录数
-  $exec="select * from test_message limit ".(($pageNumber-1)*$pageSize)." ,6";   //sql语句
-  $result = mysql_query($exec) ;                                             //执行语句，返回结果
+  $rs = mysql_fetch_row(mysql_query("SELECT COUNT(*) FROM test_message WHERE uid = '$uid'"));   //取得记录数
+  $totalCount = $rs[0];																  //取得记录数
+  $exec="select * from test_message WHERE uid = '$uid' limit ".(($pageNumber-1)*$pageSize)." ,6";   //sql语句
+  $result = mysql_query($exec) ;                                             				//执行语句，返回结果
   while($rs=mysql_fetch_object($result))
   {
     echo "<tr><td><center>".$rs->mid."</center></td>";					   //显示编号
     echo "<td><center>".$rs->uid."</center></td>";                        //显示记录人
-	echo "<td><center>".$rs->subject."</center></td>";                    //显示标题
-    echo "<td><center>".$rs->time."</center></td></tr>";				  //显示时间
+	echo "<td><center><a href='record3.php?mid=$rs->mid'>".$rs->subject."</a></center></td>";   //显示标题
+    echo "<td><center>".date('Y-m-d H:i:s', $rs->time)."</center></td></tr>";				  //显示时间
   }
 	echo "</table>";      
 ?>
@@ -178,7 +64,7 @@ body{
   echo "<br />";
   if($pageNumber > 1)                                                           //判断页数
   {
-    echo "<a href=record.php?pageNumber=".($pageNumber-1)." >上一页&nbsp&nbsp</a>";
+    echo "<a href=record1.php?pageNumber=".($pageNumber-1)." >上一页&nbsp&nbsp</a>";
   }
   else
   {
@@ -187,7 +73,7 @@ body{
 
   if($pageNumber < $totalCount/$pageSize)                                         //判断页数
   {
-    echo "<a href=record.php?pageNumber=".($pageNumber+1).">下一页&nbsp&nbsp</a>"; 
+    echo "<a href=record1.php?pageNumber=".($pageNumber+1).">下一页&nbsp&nbsp</a>"; 
   }
   else
   {

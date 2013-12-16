@@ -4,9 +4,7 @@
 	$password_min = $_POST["user_password"];			//取得密码
 	$password = md5($password_min);						//md5加密	
 	
-	$conn=mysql_connect("localhost","root","wsq012823")or die("error!"); //连接mysql              
- 	mysql_select_db("php_test",$conn); 					//选择mysql数据库
- 	mysql_query("set names 'utf8'");					//mysql编码
+	require_once('conn.php');		//引入conn.php文件
 	
 	$exec="select * from test_user where name='".$username."'";	//select语句
 
@@ -22,8 +20,10 @@
 	if ($rs=mysql_fetch_object($result)){
 		if($rs->password == $password){
 			$_SESSION["name"]=$username;				//session变量
+			$_SESSION["uid"]=$rs->id;
+			echo $_SESSION["uid"];
 			echo "登录成功！";
-			header("location:choose.php");				//调用choose文件
+			//header("location:choose.php");				//调用choose文件
 		}
 		else echo "密码不正确";
 	}
@@ -37,7 +37,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content='3; url=index.html'>
+<meta http-equiv="refresh" content='3; url=choose.php'>
 <title>注册</title>
 </head>
 <body>
