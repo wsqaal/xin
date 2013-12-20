@@ -30,7 +30,7 @@
 	text-decoration:none; 
 	}
 body{
-	font-size:24px;
+	font-size:16px;
 	background-color:#666;
 /*	text-align:center;*/
 /*	position:relative;*/
@@ -50,7 +50,7 @@ body{
 #common{
 	background-position:center;
 	background-color:#03F;
-	width:100px;
+	width:520px;
 	height:35px;
 	text-align:center;
 	font-size:24px;
@@ -65,39 +65,52 @@ body{
     width: 100%;
 }
 
-#common2{
+#huiyi{
 	font-size:24px;
-	background-color:#666;
-	text-align:left;
-	width:300px;
+	text-align:center;
+	width:80px;
+	float:left;
 }
-
-#common22{
-	width:300px;
-}
-#common3{
+#jiluren{
 	font-size:24px;
-	background-color:#666;
-	text-align:left;
-	width:140px;
+	text-align:center;
+	width:80px;
 	float:left;
 }
 
-#common4{
+#biaoti{
 	font-size:24px;
-	background-color:#666;
-	width:140px;
-	text-align:left;
+	width:240px;
+	text-align:center;
 	float:right;
 }
-#common_td{
-	float:left;
-	width:120px;
+#shijian{
+	text-align:center;
+	font-size:24px;
+	float:right;
+	width:100px;
 }
-#submit{
+#fonter2{
+	position:absolute;
+	background-color:#00F;
+	text-align:center;
+	font-size:24px;
+	float:left;
+	left:50%;
+	top:95%;
+	margin-left:-280px;
+	margin-top:-50px;
+}
+
+#fonter3{
+	position:absolute;
 	background-color:#00F;
 	text-align:center;
 	font-size:24px;
 	float:right;
+	left:50%;
+	top:95%;
+	margin-left:180px;
+	margin-top:-50px;
 }/* CSS Document */
 

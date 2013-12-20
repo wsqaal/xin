@@ -21,9 +21,17 @@
 		if($rs->password == $password){
 			$_SESSION["name"]=$username;				//session变量
 			$_SESSION["uid"]=$rs->id;
+			$_SESSION["adminid"]=$rs->adminid;
 			echo $_SESSION["uid"];
 			echo "登录成功！";
-			//header("location:choose.php");				//调用choose文件
+			echo $_SESSION["adminid"];
+			echo "登录成功！";
+			if($_SESSION["adminid"] == 1){						//判断是否为管理员权限
+				echo $_SESSION["adminid"];
+				header("location:admin_index.php");				//调用admin文件
+			}else{	
+				header("location:choose.php");				//调用choose文件
+			}
 		}
 		else echo "密码不正确";
 	}
@@ -37,7 +45,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="refresh" content='3; url=choose.php'>
+<meta http-equiv="refresh" content='3; url=index.html'>
 <title>注册</title>
 </head>
 <body>

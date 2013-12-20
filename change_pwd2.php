@@ -15,6 +15,12 @@
 			$sql="Update test_user set password='".md5($pwd2)."' where name='".$_SESSION["name"]."'";
 			mysql_query($sql) or die(mysql_error());
 			echo ("密码修改成功!");
+			if($_SESSION["adminid"] == 1){						//判断是否为管理员
+				header("location:admin_index.php");				//调用admin文件
+			}else{
+				header("location:choose.php");				//调用choose文件
+			}
+			
 	   }else{
 			echo ("旧密码不正确,请重新输入!");
 	   	}

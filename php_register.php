@@ -12,11 +12,17 @@
 	
 	$result=mysql_query($exec) or die("查询数据库出错");	    //执行这条插入语句
 						
-	if (!$result){
+	if (!$result){											//检测是否成功
    		echo '注册失败!';
 	}
 	else{
    		echo '注册成功!';
+		if($_SESSION["adminid"] == 1){						//判断是否为管理员权限
+				echo $_SESSION["adminid"];
+				header("location:admin_index.php");				//调用admin文件
+			}else{	
+				header("location:index.php");				//调用choose文件
+			}
 	}
 	mysql_close();										//关闭数据库
 ?>
