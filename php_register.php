@@ -21,7 +21,7 @@
 				echo $_SESSION["adminid"];
 				header("location:admin_index.php");				//调用admin文件
 			}else{	
-				header("location:index.php");				//调用choose文件
+				header("location:index.html");				//调用choose文件
 			}
 	}
 	mysql_close();										//关闭数据库
